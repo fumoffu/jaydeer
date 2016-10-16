@@ -1,7 +1,10 @@
 package fr.jaydeer
 
+import fr.jaydeer.timeline.entity.Post
+import fr.jaydeer.timeline.service.PostService
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 
@@ -9,8 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner
 @SpringBootTest
 class JaydeerGameApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Autowired
+    lateinit var postService: PostService
+
+    @Test
+    fun createPost() {
+        postService.create(Post("1", "voice-over", "Hello world"))
+    }
 
 }
