@@ -4,13 +4,16 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor
+import javax.validation.ValidatorFactory
 
 @Configuration
 open class ValidationConfiguration {
 
     @Bean
-    open fun methodValidationPostProcessor(): MethodValidationPostProcessor {
-        return MethodValidationPostProcessor()
+    open fun methodValidationPostProcessor(validatorFactory: ValidatorFactory): MethodValidationPostProcessor {
+        val processor = MethodValidationPostProcessor()
+        processor.setValidator(validatorFactory.validator)
+        return processor
     }
 
     @Bean

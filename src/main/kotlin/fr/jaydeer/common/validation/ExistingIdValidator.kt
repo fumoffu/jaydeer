@@ -18,6 +18,6 @@ class ExistingIdValidator: ConstraintValidator<ExistingId, String>  {
     }
 
     override fun initialize(constraintAnnotation: ExistingId) {
-        this.repository = context.getBean(constraintAnnotation.crudRepository.java)
+        this.repository = context.getBean(constraintAnnotation.value.java)
     }
 }

@@ -12,9 +12,9 @@ import java.time.Instant
 data class Post(
         @Id
         val id: String?,
-        @ExistingId(ThreadRepository::class)
+        @get:ExistingId(ThreadRepository::class)
         val threadId: String,
-        @ExistingId(PostTypeRepository::class)
+        @get:ExistingId(PostTypeRepository::class)
         val typeId: String,
         @CreatedDate
         val createdDate: Instant?,
