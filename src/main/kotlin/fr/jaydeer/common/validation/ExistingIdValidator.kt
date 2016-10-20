@@ -3,6 +3,7 @@ package fr.jaydeer.common.validation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.support.Repositories
 import javax.validation.ConstraintValidator
 import javax.validation.ConstraintValidatorContext
 
@@ -18,6 +19,8 @@ class ExistingIdValidator: ConstraintValidator<ExistingId, String>  {
     }
 
     override fun initialize(constraintAnnotation: ExistingId) {
-        this.repository = context.getBean(constraintAnnotation.value.java)
+        val repositories = Repositories(context)
+        this.repository = repositories.getRepositoryFor(constraintAnnotation.value.java)
+                as  CrudRepository<out Any, String>
     }
 }

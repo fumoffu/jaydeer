@@ -1,7 +1,7 @@
 package fr.jaydeer.timeline.repository
 
 import fr.jaydeer.timeline.entity.Thread
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 
-interface ThreadRepository: CrudRepository<Thread, String> {
+interface ThreadRepository: PagingAndSortingRepository<Thread, String> {
 }
