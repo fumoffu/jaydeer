@@ -1,3 +1,10 @@
 spring:
   data.mongodb:
     database: jaydeer
+jaydeer:
+  timeline:
+    post-types:
+      - voice-over
+      - player
+      - character
+      - description

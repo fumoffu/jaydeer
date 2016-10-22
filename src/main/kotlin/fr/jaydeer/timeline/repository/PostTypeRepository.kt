@@ -1,7 +1,7 @@
 package fr.jaydeer.timeline.repository
 
-import fr.jaydeer.timeline.entity.PostType
+import fr.jaydeer.timeline.entity.PostTypeEntity
 import org.springframework.data.repository.PagingAndSortingRepository
 
-interface PostTypeRepository: PagingAndSortingRepository<PostType, String> {
+interface PostTypeRepository: PagingAndSortingRepository<PostTypeEntity, String> {
 }

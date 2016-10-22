@@ -1,8 +1,8 @@
 package fr.jaydeer.timeline.controller
 
 import fr.jaydeer.common.web.ResponsePage
-import fr.jaydeer.timeline.entity.Post
-import fr.jaydeer.timeline.request.NewPostRequest
+import fr.jaydeer.timeline.dto.NewPost
+import fr.jaydeer.timeline.dto.Post
 import fr.jaydeer.timeline.service.PostService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Pageable
@@ -19,8 +19,8 @@ open class PostController @Autowired constructor(val postService: PostService) {
     }
 
     @RequestMapping(method = arrayOf(RequestMethod.POST))
-    fun newPost(@RequestBody @Valid newPost: NewPostRequest): Post {
-        return postService.saveFrom(newPost)
+    fun newPost(@RequestBody @Valid newPost: NewPost): Post {
+        return postService.save(newPost)
     }
 
 }
