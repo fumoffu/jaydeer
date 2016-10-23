@@ -5,7 +5,7 @@ import fr.jaydeer.timeline.entity.ThreadEntity
 import javax.validation.constraints.NotNull
 
 data class NewThread(
-        @NotNull
+        @get:NotNull
         val name: String): Entitiable<ThreadEntity> {
 
     override fun toEntity() = ThreadEntity(name)
