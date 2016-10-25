@@ -7,7 +7,7 @@ import java.util.*
 
 @Service
 open class RollingService(
-        val customDiceService: CustomDiceService,
+        val diceService: DiceService,
         val objectMapper: ObjectMapper) {
 
     fun roll(dice: Dice): Face {
@@ -31,7 +31,7 @@ open class RollingService(
         }
     }
 
-    fun roll(diceId: String): Face = roll(customDiceService.findOne(diceId))
+    fun roll(diceId: String): Face = roll(diceService.findOne(diceId))
 
     // Exponential distribution
     fun roll(dice: Map<String, Int>): Face = dice

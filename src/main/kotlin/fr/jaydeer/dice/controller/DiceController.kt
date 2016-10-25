@@ -3,7 +3,7 @@ package fr.jaydeer.dice.controller
 import fr.jaydeer.dice.dto.CustomDice
 import fr.jaydeer.dice.dto.Dice
 import fr.jaydeer.dice.dto.Face
-import fr.jaydeer.dice.service.CustomDiceService
+import fr.jaydeer.dice.service.DiceService
 import fr.jaydeer.dice.service.RollingService
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,7 +15,7 @@ import javax.validation.Valid
 @RestController
 open class DiceController(
         val rollingService: RollingService,
-        val customDiceService: CustomDiceService) {
+        val diceService: DiceService) {
 
     @RequestMapping(value="/roll", method = arrayOf(RequestMethod.POST))
     fun roll(@RequestBody @Valid dices: List<Dice>): List<Face> {
@@ -24,6 +24,6 @@ open class DiceController(
 
     @RequestMapping(value="/dices", method = arrayOf(RequestMethod.POST))
     fun newDice(@RequestBody @Valid dice: CustomDice): CustomDice {
-        return customDiceService.save(dice)
+        return diceService.save(dice)
     }
 }

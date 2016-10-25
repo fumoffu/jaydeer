@@ -5,8 +5,8 @@ import fr.jaydeer.dice.dto.CustomDice
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
-@Document(collection = CustomDiceEntity.collectionId)
-class CustomDiceEntity : Transferable<CustomDice> {
+@Document(collection = DiceEntity.collectionId)
+class DiceEntity : Transferable<CustomDice> {
 
     @Id
     lateinit var id: String
@@ -20,6 +20,6 @@ class CustomDiceEntity : Transferable<CustomDice> {
     override fun toDTO(): CustomDice = CustomDice(id, faces)
 
     companion object {
-        const val collectionId = "customDices"
+        const val collectionId = "dices"
     }
 }
