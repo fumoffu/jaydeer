@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing
 @EnableMongoAuditing
 @SpringBootApplication
 @EnableConfigurationProperties
-open class JaydeerGameApplication
+class JaydeerGameApplication
 
 fun main(args: Array<String>) {
     SpringApplication.run(JaydeerGameApplication::class.java, *args)

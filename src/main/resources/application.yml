@@ -1,25 +1,3 @@
 spring:
   data.mongodb:
     database: jaydeer
-jaydeer:
-  common:
-    type-collection: types
-    provisionned:
-      - type:
-        category: POST
-        id: voice-over
-      - type:
-        category: POST
-        id: player
-      - type:
-        category: POST
-        id: character
-      - type:
-        category: POST
-        id: description
-      - type:
-        category: ACTOR
-        id: player
-      - type:
-        category: ACTOR
-        id: character

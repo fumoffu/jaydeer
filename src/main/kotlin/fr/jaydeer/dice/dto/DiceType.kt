@@ -1,14 +1,22 @@
 package fr.jaydeer.dice.dto
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import fr.jaydeer.dice.deserializer.DiceTypeDeserializer
+import com.fasterxml.jackson.annotation.JsonValue
 
-@JsonDeserialize(using = DiceTypeDeserializer::class)
-enum class DiceType(val type: String) {
-    N_SIDED_DICE_ID("nSided"),
-    CUSTOM_DICE_ID("custom");
+enum class DiceType(val id: String) {
+    N_SIDE(Id.N_SIDE),
+    CUSTOM(Id.CUSTOM);
+
+    @JsonValue
+    override fun toString(): String {
+        return id
+    }
 
     companion object {
-        fun forValue(type: String): DiceType = DiceType.values().first { it.type == type }
+        fun forValue(id: String): DiceType = DiceType.values().first { it.id == id }
+    }
+
+    object Id {
+        const val N_SIDE = "nSide"
+        const val CUSTOM = "custom"
     }
 }
