@@ -1,5 +1,5 @@
 package fr.jaydeer.chat.message
 
-sealed class Message
+interface Message
 
-data internal class TextMessage(val content: String) : Message()
+data class TextMessage(val content: String) : Message

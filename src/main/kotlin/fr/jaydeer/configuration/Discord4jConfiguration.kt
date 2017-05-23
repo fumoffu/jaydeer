@@ -16,20 +16,12 @@ class Discord4jConfiguration {
         val clientBuilder = ClientBuilder()
         clientBuilder.withToken("MzE1NzgyOTk4MTEwODk2MTM4.DAL32g.NvQR5Zb4WvWRenl8QcSE6kzL8ig")
         val client = clientBuilder.login()
-        val mono = Mono.create<IDiscordClient> { sink ->
+        return Mono.create<IDiscordClient> { sink ->
             client.dispatcher.registerListener {
                 if(it is ReadyEvent) {
-                    println("THIS IS A SUCCESS")
                     sink.success(client)
                 }
             }
         }
-        mono.subscribe {
-            println("SENDING HELLO WORLD...")
-            it.channels.forEach {
-                it.sendMessage("Hello World !")
-            }
-        }
-        return mono
     }
 }
