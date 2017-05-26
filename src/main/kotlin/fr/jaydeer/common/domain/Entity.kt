@@ -1,5 +1,7 @@
 package fr.jaydeer.common.domain
 
-interface Entity {
-    val id: String
+interface Entity<out ID: Entity.Id> {
+    val id: ID
+
+    interface Id
 }

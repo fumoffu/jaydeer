@@ -1,10 +1,10 @@
 package fr.jaydeer
 
 import fr.jaydeer.chat.message.TextMessage
-import fr.jaydeer.chat.server.ServerId
-import fr.jaydeer.chat.server.ServerProvider
-import fr.jaydeer.chat.service.ChatService
+import fr.jaydeer.chat.instance.ChatInstance
+import fr.jaydeer.chat.ChatService
 import fr.jaydeer.common.reactor.applySubscribe
+import org.bson.types.ObjectId
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -19,7 +19,7 @@ class JaydeerGameApplication(val chatService: ChatService) {
 
     @PostConstruct
     fun doSomething() {
-        chatService.chat(ServerId("312641638121865219", ServerProvider.DISCORD)).applySubscribe {
+        chatService.chat(ObjectId()).applySubscribe {
             sendMessage(TextMessage("Hello :)"))
         }
     }
