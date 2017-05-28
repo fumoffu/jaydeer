@@ -3,7 +3,7 @@ package fr.jaydeer.dice.nside
 import fr.jaydeer.dice.Dice
 import fr.jaydeer.dice.face.IntFace
 
-interface NSideDice : Dice {
+interface IntDice : Dice {
     val n: Int
     val start: Int
     val step: Int

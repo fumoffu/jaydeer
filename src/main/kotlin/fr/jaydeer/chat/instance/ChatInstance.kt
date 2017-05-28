@@ -1,5 +1,8 @@
 package fr.jaydeer.chat.instance
 
-import fr.jaydeer.common.domain.Stored
+import fr.jaydeer.chat.ChatEntity
 
-interface ChatInstance : Stored
+interface ChatInstance : ChatEntity {
+    override val id: Id
+    interface Id : ChatEntity.Id
+}

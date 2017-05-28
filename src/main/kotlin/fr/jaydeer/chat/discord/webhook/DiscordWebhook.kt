@@ -4,9 +4,10 @@ import fr.jaydeer.chat.discord.DiscordEntity
 import fr.jaydeer.chat.speaker.ChatSpeaker
 
 interface DiscordWebhook: ChatSpeaker, DiscordEntity {
+    override val id: Id
     val username: String
     val avatarUrl: String
     val token: String
 
-    data class Id(override val entity: Long): DiscordEntity.Id
+    data class Id(override val entity: Long): DiscordEntity.Id, ChatSpeaker.Id
 }

@@ -9,7 +9,7 @@ class WebhookClient(val client: RestTemplate = RestTemplate()) {
     val webhookUrl = "https://discordapp.com/api/webhooks"
 
     fun sendMessage(message: TextMessage, webhook: DiscordWebhook) {
-        val url = "$webhookUrl/${webhook.id.value}/${webhook.token}"
+        val url = "$webhookUrl/${webhook.id.entity}/${webhook.token}"
         client.postForLocation(url, WebhookMessage(message.content, webhook.username, webhook.avatarUrl))
     }
 

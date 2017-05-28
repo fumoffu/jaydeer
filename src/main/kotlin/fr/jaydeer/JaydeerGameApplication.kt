@@ -3,6 +3,7 @@ package fr.jaydeer
 import fr.jaydeer.chat.message.TextMessage
 import fr.jaydeer.chat.instance.ChatInstance
 import fr.jaydeer.chat.ChatService
+import fr.jaydeer.chat.discord.guild.Guild
 import fr.jaydeer.common.reactor.applySubscribe
 import org.bson.types.ObjectId
 import org.springframework.boot.SpringApplication
@@ -19,7 +20,7 @@ class JaydeerGameApplication(val chatService: ChatService) {
 
     @PostConstruct
     fun doSomething() {
-        chatService.chat(ObjectId()).applySubscribe {
+        chatService.chat(Guild.Id(312641638121865219)).applySubscribe {
             sendMessage(TextMessage("Hello :)"))
         }
     }

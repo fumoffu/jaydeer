@@ -1,10 +1,11 @@
-package fr.jaydeer.chat.instance
-
+package fr.jaydeer.chat
+import fr.jaydeer.chat.instance.InstanceProvider
 import fr.jaydeer.common.domain.Entity
 
-interface ChatEntity<out ID: ChatEntity.Id<Any>> : Entity<ID> {
-    interface Id<out ID>: Entity.Id {
-        val entity: ID
+interface ChatEntity : Entity {
+    override val id: Id
+    interface Id {
+        val entity: Any
         val provider: InstanceProvider
     }
 }

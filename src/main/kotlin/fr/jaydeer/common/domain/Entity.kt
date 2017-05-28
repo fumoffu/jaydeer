@@ -1,7 +1,8 @@
 package fr.jaydeer.common.domain
 
-interface Entity<out ID: Entity.Id> {
-    val id: ID
+import org.bson.types.ObjectId
 
-    interface Id
+interface Entity {
+    val storageId: ObjectId?
+    val id: Any
 }
